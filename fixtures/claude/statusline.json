@@ -1,0 +1,58 @@
+{
+  "session_id": "873588b0-0342-44ab-b0ff-8aef91b44c69",
+  "transcript_path": "/home/owner/.claude/projects/-work-demo/873588b0-0342-44ab-b0ff-8aef91b44c69.jsonl",
+  "cwd": "/work/demo/sub",
+  "scratchpad_dir": "/tmp/scratch",
+  "effort": {
+    "level": "medium"
+  },
+  "model": {
+    "id": "claude-haiku-5-5",
+    "display_name": "Haiku 5.5"
+  },
+  "workspace": {
+    "current_dir": "/work/demo/sub",
+    "project_dir": "/work/demo/sub",
+    "added_dirs": []
+  },
+  "version": "2.1.322",
+  "output_style": {
+    "name": "default"
+  },
+  "cost": {
+    "total_cost_usd": 0,
+    "total_duration_ms": 676,
+    "total_api_duration_ms": 0,
+    "total_lines_added": 0,
+    "total_lines_removed": 0
+  },
+  "context_window": {
+    "total_input_tokens": 61348,
+    "total_output_tokens": 113,
+    "context_window_size": 1000000,
+    "current_usage": {
+      "input_tokens": 2,
+      "output_tokens": 113,
+      "cache_creation_input_tokens": 32322,
+      "cache_read_input_tokens": 29024
+    },
+    "used_percentage": 6,
+    "remaining_percentage": 94
+  },
+  "exceeds_200k_tokens": false,
+  "fast_mode": false,
+  "thinking": {
+    "enabled": true
+  },
+  "prompt_id": "25e19f79-5625-4761-9e76-32cbb4067234",
+  "rate_limits": {
+    "five_hour": {
+      "used_percentage": 100,
+      "resets_at": 1794457800
+    },
+    "seven_day": {
+      "used_percentage": 73,
+      "resets_at": 1794848400
+    }
+  }
+}

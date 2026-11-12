@@ -1,0 +1,12 @@
+{
+  "session_id": "40cb1d49-ec61-4fc8-90dc-ca398e7a8d15",
+  "transcript_path": "/home/owner/.claude/projects/-work-demo/40cb1d49-ec61-4fc8-90dc-ca398e7a8d15.jsonl",
+  "cwd": "/work/demo",
+  "scratchpad_dir": "/tmp/scratch",
+  "hook_event_name": "SessionStart",
+  "source": "resume",
+  "seconds_since_last_response": 18,
+  "context_tokens": 63265,
+  "prompt_cache_likely_expired": false,
+  "estimated_cache_write_usd": 0.0079
+}

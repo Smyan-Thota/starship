@@ -1,0 +1,11 @@
+/* New chat form. Classes start with nc-. */
+.nc { max-width: 420px; display: grid; gap: 12px }
+.nc-field { display: grid; gap: 4px; font-size: 13px; color: var(--ink2) }
+.nc-field input, .nc-field select { border: 1px solid var(--line); border-radius: 6px; background: var(--bg); padding: 5px 9px; color: var(--ink); min-width: 0 }
+.nc-field input:focus, .nc-field select:focus { border-color: var(--ink3); outline: none }
+.nc-field input:disabled, .nc-field select:disabled { color: var(--ink3); background: var(--side) }
+.nc-row { display: flex; gap: 8px; align-items: flex-end }
+.nc-row .nc-field { flex: 1 }
+.nc .btn:disabled { color: var(--ink3); cursor: default }
+.nc .btn:disabled:hover { background: none }
+.nc-err { color: var(--red); font-size: 13px; margin: 0; white-space: pre-wrap }

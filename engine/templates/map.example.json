@@ -1,0 +1,30 @@
+{
+  "name": "example",
+  "layers": [
+    ["Human", "The people who use the product"],
+    ["Service", "The code that does the work"]
+  ],
+  "boxes": [
+    { "id": "web", "layer": 0, "row": 0, "left": 0.05, "right": 0.45, "name": "Web app", "what": "The screens a customer uses", "dir": "apps/web", "chips": ["OrderPage", "~ui-kit"] },
+    { "id": "api", "layer": 1, "row": 0, "left": 0.05, "right": 0.45, "name": "API", "what": "Answers the web app", "dir": "services/api", "chips": ["orders.router", "orders.service"] },
+    { "id": "db", "layer": 1, "row": 0, "left": 0.55, "right": 0.95, "name": "Database", "what": "Keeps orders", "dir": "packages/db", "chips": ["#orders"], "store": true }
+  ],
+  "pipes": [
+    { "id": "web-api", "from": "web", "to": "api", "kind": "call", "label": "order requests", "route": {} },
+    { "id": "api-db", "from": "api", "to": "db", "kind": "lookup", "label": "order rows", "route": { "across": true } }
+  ],
+  "flows": {
+    "over": { "name": "Overview" },
+    "place": {
+      "name": "Place an order",
+      "story": "A customer sends an order and sees it saved.",
+      "paths": [{ "n": 1, "name": "Order", "who": "person", "trigger": "The customer presses Order", "entry": "OrderPage", "after": "The order shows in the list" }],
+      "steps": [
+        { "n": "1.1", "pipe": "web-api", "label": "POST /orders", "text": "The page sends the order.", "where": "apps/web/OrderPage" },
+        { "n": "1.2", "pipe": "api-db", "label": "insert", "text": "The service saves the row.", "where": "services/api/orders.service" }
+      ],
+      "lit": { "web": ["OrderPage"], "api": ["orders.router", "orders.service"], "db": ["#orders"] }
+    }
+  },
+  "order": ["over", "place"]
+}

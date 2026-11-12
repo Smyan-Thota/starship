@@ -1,0 +1,169 @@
+{
+  "name": "starship",
+  "layers": [
+    ["You", "where the owner works"],
+    ["Starship", "the code and files that Starship adds"],
+    ["Tools", "installed, unchanged"],
+    ["Repo", "the owner's code"]
+  ],
+  "boxes": [
+    {
+      "id": "terminal", "layer": 0, "row": 0, "left": 0.04, "right": 0.26, "tag": "unchanged",
+      "name": "iTerm or Terminal",
+      "what": "The owner's own terminal. One window for each agent that the owner opens.",
+      "dir": "",
+      "chips": ["tmux attach", "detach: Ctrl-b d"]
+    },
+    {
+      "id": "window", "layer": 0, "row": 0, "left": 0.3, "right": 0.6, "tag": "we build",
+      "name": "Window",
+      "what": "The React page. It reads the engine over HTTP and one WebSocket. It holds no state except an unsent draft.",
+      "dir": "app/src",
+      "chips": ["Chats", "Plan", "Tasks", "Build", "Review", "Files", "Admin chat", "Map", "Usage", "Halt", "Settings", "~engine/src/types.ts"]
+    },
+    {
+      "id": "shell", "layer": 0, "row": 0, "left": 0.64, "right": 0.96, "tag": "we build",
+      "name": "Mac shell",
+      "what": "The Tauri program. It shows the window and a menu bar item. It starts the engine when none answers.",
+      "dir": "app/src-tauri/src",
+      "chips": ["Menu bar item", "Sidecar start", "/health check", "#engine.json"]
+    },
+    {
+      "id": "engine", "layer": 1, "row": 1, "left": 0.04, "right": 0.70, "tag": "we build",
+      "name": "Engine",
+      "what": "One Bun process on 127.0.0.1. It owns every route, the token check and the connections between its parts.",
+      "dir": "engine/src",
+      "chips": ["server.ts · api.ts", "engine.ts", "cli.ts · starship CLI", "chats.ts · repos.ts · config.ts", "folder/ parsers", "map/ validator", "review/", "usage/ switch rule", "watch.ts · worktree.ts", "~engine/src/types.ts"]
+    },
+    {
+      "id": "home", "layer": 1, "row": 1, "left": 0.78, "right": 0.96, "store": true,
+      "name": "Engine home",
+      "what": "The engine's own files.",
+      "dir": "~/.starship",
+      "chips": ["#config.json", "#engine.json", "#token", "#repos/", "#chats/", "#usage/", "#locks/"]
+    },
+    {
+      "id": "loop", "layer": 1, "row": 2, "left": 0.04, "right": 0.41, "tag": "we build",
+      "name": "Build loop",
+      "what": "Picks the next task, sends its prompt, and decides verified or failed. It runs each check in the run queue, one heavy command at a time.",
+      "dir": "engine/src/run",
+      "chips": ["loop.ts", "queue.ts", "commit.ts", "halt.ts · park.ts", "notes-loop.ts", "orchestrator.ts", "~run/ports.ts", "#run/state.json"]
+    },
+    {
+      "id": "sessions", "layer": 1, "row": 2, "left": 0.59, "right": 0.96, "tag": "we build",
+      "name": "Sessions",
+      "what": "Runs each agent as a tmux session: start, ready wait, paste with a delivery check, Escape, stall watch.",
+      "dir": "engine/src",
+      "chips": ["ready wait", "paste + delivery check", "Escape", "stall watch", "~agents/tmux.ts", "~agents/claude.ts", "~agents/codex.ts", "~agents/roles.ts"]
+    },
+    {
+      "id": "hook", "layer": 1, "row": 3, "left": 0.04, "right": 0.96, "tag": "we build",
+      "name": "Hook program",
+      "what": "`starship hook`: one short process for each hook event of a tool. It appends a line to the event log, asks the guard about a tool call, and tells the engine.",
+      "dir": "engine/src/hook-entry.ts",
+      "chips": ["hook-entry.ts", "hooks.ts", "guards.ts · PreToolUse", "starship status", "#events.jsonl", "POST /api/hook"]
+    },
+    {
+      "id": "tmux", "layer": 2, "row": 4, "left": 0.04, "right": 0.96, "tag": "unchanged",
+      "name": "tmux",
+      "what": "Holds one terminal for each agent and keeps it alive in the background.",
+      "dir": "",
+      "chips": ["ss-<chat>-admin", "ss-<chat>-orchestrator", "ss-<chat>-worker-a", "ss-<chat>-worker-b", "ss-<chat>-reviewer-1", "ss-<chat>-reviewer-2", "ss-<chat>-card-runner"]
+    },
+    {
+      "id": "claude", "layer": 2, "row": 5, "left": 0.04, "right": 0.41, "tag": "unchanged",
+      "name": "Claude Code",
+      "what": "Anthropic's terminal agent. Starship passes flags in and listens to its hooks.",
+      "dir": "",
+      "chips": ["--settings", "--append-system-prompt-file", "--model", "--resume", "hook: SessionStart", "hook: UserPromptSubmit", "hook: Stop", "hook: Notification", "hook: PreToolUse", "hook: SessionEnd", "statusLine", "#transcript .jsonl"]
+    },
+    {
+      "id": "codex", "layer": 2, "row": 5, "left": 0.59, "right": 0.96, "tag": "unchanged",
+      "name": "Codex",
+      "what": "OpenAI's terminal agent. Starship passes flags in and listens to its notify call.",
+      "dir": "",
+      "chips": ["-C", "-m", "-c notify=[...]", "-s · -a", "resume <id>", "notify", "#rollout .jsonl"]
+    },
+    {
+      "id": "worktree", "layer": 3, "row": 6, "left": 0.04, "right": 0.96,
+      "name": "Worktree",
+      "what": "One checkout for each chat, on the branch starship/<slug>. The agents edit the code here.",
+      "dir": "~/.starship/worktrees/<repo>/<slug>",
+      "chips": ["source", "tests", "docs/adr/", "#info/exclude"]
+    },
+    {
+      "id": "feature", "layer": 3, "row": 7, "left": 0.04, "right": 0.96, "store": true,
+      "name": "Feature folder",
+      "what": "The state of the chat, as files. A new agent continues from it with no memory of the chat before.",
+      "dir": "docs/features/<slug>",
+      "chips": ["#SPEC.md", "#PLAN.md", "#TASKS.md", "#ACCEPTANCE.md", "#PROMPTS.md", "#wireframes/", "#run/state.json", "#run/progress.md", "#run/handoffs.md", "#run/questions.md", "#run/review/", "#run/map-overlay.json"]
+    }
+  ],
+  "pipes": [
+    { "id": "window-engine", "from": "window", "to": "engine", "kind": "call", "label": "HTTP: messages and clicks", "route": { "x": 0.38 } },
+    { "id": "engine-window", "from": "engine", "to": "window", "kind": "event", "label": "WebSocket: live state", "route": { "x": 0.52 } },
+    { "id": "shell-engine", "from": "shell", "to": "engine", "kind": "call", "label": "start · /health", "route": { "x": 0.67 } },
+    { "id": "engine-terminal", "from": "engine", "to": "terminal", "kind": "call", "label": "open a window", "route": { "x": 0.15 } },
+    { "id": "terminal-tmux", "from": "terminal", "to": "tmux", "kind": "call", "label": "tmux attach", "route": { "side": "L", "lane": 1 } },
+    { "id": "engine-home", "from": "engine", "to": "home", "kind": "lookup", "label": "state files", "route": { "across": true } },
+    { "id": "engine-loop", "from": "engine", "to": "loop", "kind": "call", "label": "events · halt · resume", "route": { "x": 0.22 } },
+    { "id": "engine-sessions", "from": "engine", "to": "sessions", "kind": "call", "label": "start · stop agents", "route": { "x": 0.64 } },
+    { "id": "loop-sessions", "from": "loop", "to": "sessions", "kind": "call", "label": "AgentPort: send · interrupt", "route": { "across": true } },
+    { "id": "sessions-tmux", "from": "sessions", "to": "tmux", "kind": "call", "label": "new session · paste · Escape", "route": { "side": "R", "lane": 2 } },
+    { "id": "hook-sessions", "from": "hook", "to": "sessions", "kind": "event", "label": "events.jsonl · POST /api/hook", "route": { "x": 0.78 } },
+    { "id": "tmux-claude", "from": "tmux", "to": "claude", "kind": "call", "label": "runs claude", "route": { "x": 0.22 } },
+    { "id": "tmux-codex", "from": "tmux", "to": "codex", "kind": "call", "label": "runs codex", "route": { "x": 0.78 } },
+    { "id": "claude-hook", "from": "claude", "to": "hook", "kind": "event", "label": "hooks · status line", "route": { "side": "L", "lane": 2 } },
+    { "id": "codex-hook", "from": "codex", "to": "hook", "kind": "event", "label": "notify", "route": { "side": "R", "lane": 1 } },
+    { "id": "claude-worktree", "from": "claude", "to": "worktree", "kind": "call", "label": "reads the plan · edits", "route": { "x": 0.22 } },
+    { "id": "codex-worktree", "from": "codex", "to": "worktree", "kind": "call", "label": "reads the plan · edits", "route": { "x": 0.78 } },
+    { "id": "loop-feature", "from": "loop", "to": "feature", "kind": "call", "label": "check off · commit", "route": { "side": "L", "lane": 3 } }
+  ],
+  "flows": {
+    "over": { "name": "Overview" },
+    "task": {
+      "name": "A finished task",
+      "story": "Worker A says that T022 is done. The engine does not take its word for it. It runs the check, then hands out the next task.",
+      "paths": [
+        {
+          "n": 1,
+          "name": "Check the work",
+          "who": "auto",
+          "trigger": "Worker A's turn ends",
+          "entry": "Codex notify → Hook program → Build loop",
+          "after": "T022 is checked in TASKS.md and committed. The window shows the new count."
+        },
+        {
+          "n": 2,
+          "name": "Hand out the next task",
+          "who": "auto",
+          "trigger": "Path 1 passes",
+          "entry": "Build loop → Sessions",
+          "after": "Worker A has the prompt for T024 and starts a turn."
+        }
+      ],
+      "steps": [
+        { "n": "1.1", "pipe": "codex-hook", "label": "notify", "text": "Codex ends the turn and runs the hook program.", "where": "Codex · notify" },
+        { "n": "1.2", "pipe": "hook-sessions", "label": "events.jsonl", "text": "The hook program appends one line and tells the engine at once.", "where": "Hook program · events.jsonl" },
+        { "n": "1.3", "pipe": "loop-feature", "label": "check off · commit", "text": "The loop runs the verify command of T022. Exit 0 checks the box in TASKS.md and commits the task.", "where": "Build loop · TASKS.md" },
+        { "n": "1.4", "pipe": "engine-window", "label": "live state", "text": "The window reads the chat again and shows the new count.", "where": "Window · Chats" },
+        { "n": "2.1", "pipe": "loop-sessions", "label": "next task", "text": "The loop writes the prompt file of T024 and sends one line that points at it.", "where": "Build loop · Sessions" },
+        { "n": "2.2", "pipe": "sessions-tmux", "label": "paste + Enter", "text": "Sessions pastes the line into the session of Worker A.", "where": "tmux · ss-<chat>-worker-a" },
+        { "n": "2.3", "pipe": "tmux-codex", "label": "turn starts", "text": "Codex takes the line as if the owner typed it.", "where": "Codex" },
+        { "n": "2.4", "pipe": "codex-worktree", "label": "edits", "text": "Worker A edits the code in the worktree.", "where": "Worktree · source" }
+      ],
+      "lit": {
+        "window": ["Chats"],
+        "hook": ["hook-entry.ts", "#events.jsonl"],
+        "loop": ["loop.ts", "queue.ts", "commit.ts"],
+        "sessions": ["paste + delivery check"],
+        "tmux": ["ss-<chat>-worker-a"],
+        "codex": ["notify"],
+        "worktree": ["source"],
+        "feature": ["#TASKS.md"]
+      },
+      "marks": { "feature|#TASKS.md": "checked off" }
+    }
+  },
+  "order": ["over", "task"]
+}

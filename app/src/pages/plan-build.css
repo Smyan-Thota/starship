@@ -1,0 +1,38 @@
+/* Plan and Build pages. Dark only. Uses the variables of styles.css. */
+.pb-line { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 12px; width: 100%; padding: 6px 8px; margin: 0 -8px; border-radius: 5px; align-items: baseline }
+.pb-line:hover { background: var(--hover) }
+.pb-line .k { color: var(--ink2) }
+.pb-line .v { min-width: 0; overflow-wrap: anywhere }
+.pb-list { list-style: none; margin: 0 0 10px; padding: 0 }
+.pb-list li { padding: 2px 0 }
+.pb-item { display: flex; gap: 10px; align-items: baseline; width: 100%; padding: 4px 6px; margin: 0 -6px; border-radius: 5px }
+.pb-item:hover { background: var(--hover) }
+.pb-item .where { font: 12.5px var(--m); color: var(--ink2); white-space: nowrap }
+.pb-item .name { font: 13px var(--m) }
+.pb-problems .pb-item .where { color: var(--red) }
+.pb-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 18px }
+.pb-actions .btn:disabled { opacity: .5; cursor: default }
+
+.pb-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px }
+.pb-head h1 { margin: 0 }
+.pb-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 0 0 6px }
+.pb-table th, .pb-table td { text-align: left; padding: 5px 10px 5px 0; border-bottom: 1px solid var(--line) }
+.pb-table th { font-weight: 500; color: var(--ink2) }
+.pb-table th:nth-child(n+2), .pb-table td:nth-child(n+2) { width: 80px; font-variant-numeric: tabular-nums }
+.pb-row { display: grid; grid-template-columns: 46px minmax(0, 1fr) auto; gap: 8px; padding: 5px 0; border-bottom: 1px solid var(--line); align-items: baseline }
+.pb-row .id { font: 12px var(--m); color: var(--ink3) }
+.pb-row .s { font-size: 12.5px; color: var(--ink2); white-space: nowrap }
+.pb-row .s.red { color: var(--red) }
+.pb-agent { display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--line) }
+.pb-agent:hover { background: var(--hover) }
+.pb-agent-main { flex: 1; min-width: 0; display: grid; grid-template-columns: minmax(92px, 1.3fr) 50px minmax(0, 1fr) 64px 48px 30px; gap: 6px; padding: 6px 4px; align-items: baseline }
+.pb-agent-main .mono, .pb-agent-main .v { color: var(--ink2) }
+.pb-agent-main span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.pb-agent .btn { flex: none }
+
+@media (max-width: 980px) {
+  .pb-agent-main { grid-template-columns: 1fr 1fr; }
+  .pb-row { grid-template-columns: 46px minmax(0, 1fr) }
+  .pb-row .s { grid-column: 2 }
+}
+.pb-item .ext::after { content: " ↗" }

@@ -1,0 +1,68 @@
+/* The map page. Dark only. Every class starts with map- or is inside .map-page. */
+.map-page { min-width: 0 }
+.map-flows { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 14px }
+.map-tab { padding: 3px 11px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; color: var(--ink2) }
+.map-tab:hover { background: var(--hover) }
+.map-tab[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink) }
+.map-story { color: var(--ink2); margin: 0 0 12px; max-width: 84ch }
+
+.map-paths { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 8px; margin: 0 0 16px }
+.map-path { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; display: grid; gap: 5px; font-size: 13px; align-content: start }
+.map-path-head { display: flex; gap: 8px; font-weight: 600; align-items: baseline }
+.map-path-trigger { display: flex; gap: 6px; color: var(--ink2) }
+.map-path-trigger svg { flex: none; margin-top: 3px }
+.map-path code { font: 11.5px var(--m); color: var(--ink3) }
+.map-path small { font-size: 11px; color: var(--ink3); letter-spacing: .05em; text-transform: uppercase; margin-top: 4px; border-top: 1px solid var(--line); padding-top: 6px }
+.map-num { min-width: 17px; height: 17px; padding: 0 4px; border-radius: 9px; background: var(--ink); color: var(--bg); font: 600 10.5px var(--f); display: inline-grid; place-items: center; flex: none }
+
+.map-wrap { overflow-x: auto }
+.map-stage { position: relative }
+.map-pipes { position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible }
+.pipe { fill: none; stroke: var(--ink3); stroke-width: 1.2 }
+.pipe-lookup { stroke-dasharray: 1.5 4 }
+.pipe-event { stroke-dasharray: 6 4 }
+.pipe.on { stroke: var(--ink); stroke-width: 1.7 }
+.pipe.off { stroke: var(--line) }
+
+.map-band { position: absolute; left: 0; right: 0; border: 1px solid var(--line); border-radius: 10px; background: var(--side) }
+.map-band span { position: absolute; left: 0; right: 0; bottom: 7px; text-align: center; font-size: 11.5px; color: var(--ink3) }
+.map-band span[data-align="l"] { text-align: left; padding-left: 64px }
+.map-band span[data-align="r"] { text-align: right; padding-right: 64px }
+.map-band span b { color: var(--ink2); font-weight: 600; letter-spacing: .05em; text-transform: uppercase; font-size: 11px; margin-right: 6px }
+
+.map-box { position: absolute; z-index: 1; display: grid; grid-template-columns: minmax(0, 36%) minmax(0, 1fr); border: 1px solid var(--ink3); border-radius: 8px; background: var(--bg) }
+.map-box.half { grid-template-columns: minmax(0, 46%) minmax(0, 1fr) }
+.map-box.nar { grid-template-columns: minmax(0, 1fr) }
+.map-box.off { border-style: dashed }
+.map-box.dim { opacity: .36 }
+.map-box-l { padding: 10px 12px }
+.map-box-l b { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; font-weight: 600; font-size: 14.5px }
+.map-box-l span { display: block; font-size: 12.5px; color: var(--ink2); line-height: 1.4; margin: 3px 0 8px }
+.map-box-l code { font: 11px var(--m); color: var(--ink3); overflow-wrap: anywhere }
+.map-box-r { padding: 10px 12px; display: flex; flex-wrap: wrap; gap: 5px; align-content: flex-start; border-left: 1px solid var(--line) }
+.map-box.nar .map-box-r { border-left: 0; border-top: 1px solid var(--line) }
+.map-own { font: 500 10.5px var(--f); font-style: normal; color: var(--ink3); border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; white-space: nowrap }
+
+.map-chip { min-width: 0; max-width: 100%; overflow-wrap: anywhere; font: 11.5px var(--m); padding: 2px 7px; border-radius: 4px; background: var(--code); color: var(--ink2); display: inline-flex; gap: 5px; align-items: center }
+.map-chip.shared { background: none; box-shadow: inset 0 0 0 1px var(--line); outline: 1px dashed var(--ink3); outline-offset: -1px }
+.map-chip.dim { opacity: .45 }
+.map-chip.lit { background: var(--blue-bg); color: var(--ink); box-shadow: inset 0 0 0 1px var(--blue); outline: 0 }
+.map-chip i { font: 500 10.5px var(--f); font-style: normal; color: var(--blue) }
+
+.map-pill { position: absolute; z-index: 2; display: inline-flex; align-items: center; gap: 6px; height: 21px; padding: 0 8px 0 6px; border-radius: 11px; border: 1px solid var(--line); background: var(--bg); font-size: 12px; white-space: nowrap; color: var(--ink2) }
+.map-pill.on { color: var(--ink); border-color: var(--ink3); padding-left: 2px }
+.map-code-icon { font: 11px var(--m); color: var(--ink3); display: inline-flex }
+
+.map-key { display: flex; gap: 6px 18px; flex-wrap: wrap; font-size: 12px; color: var(--ink2); margin: 12px 0 0; align-items: center }
+.map-key b { font-weight: 600; color: var(--ink2) }
+.map-key > span { display: inline-flex; gap: 6px; align-items: center }
+.map-key svg.ln { width: 30px; height: 8px }
+.map-key .ln-call, .map-key .ln-lookup, .map-key .ln-event { fill: none; stroke: currentColor }
+.map-key .ln-lookup { stroke-dasharray: 1.5 4 }
+.map-key .ln-event { stroke-dasharray: 6 4 }
+
+.map-path-title { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink3); margin: 22px 0 2px }
+.map-step { display: grid; grid-template-columns: 44px minmax(0, 200px) minmax(0, 1fr); gap: 8px 12px; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 13.5px; align-items: baseline }
+.map-step-ft { display: grid; gap: 2px }
+.map-step-ft span { color: var(--ink2); font-size: 12.5px }
+.map-step code { display: block; font: 11.5px var(--m); color: var(--ink3); margin-top: 2px }

@@ -1,0 +1,16 @@
+{
+  "session_id": "40cb1d49-ec61-4fc8-90dc-ca398e7a8d15",
+  "transcript_path": "/home/owner/.claude/projects/-work-demo/40cb1d49-ec61-4fc8-90dc-ca398e7a8d15.jsonl",
+  "cwd": "/work/demo",
+  "scratchpad_dir": "/tmp/scratch",
+  "prompt_id": "25e19f79-5625-4761-9e76-32cbb4067234",
+  "permission_mode": "auto",
+  "effort": {
+    "level": "medium"
+  },
+  "hook_event_name": "Stop",
+  "stop_hook_active": false,
+  "last_assistant_message": "hello",
+  "background_tasks": [],
+  "session_crons": []
+}

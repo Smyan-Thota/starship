@@ -1,0 +1,19 @@
+/* Chat pane and agent page. Classes start with cp- and ap-. Base classes (.chat, .msgs, .note, .form, .inp, .props, .btn, .tab) come from styles.css. */
+.cp-need { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 16px; border-top: 1px solid var(--line); background: var(--code); color: var(--amber); font-size: 13px }
+.cp-act { color: var(--blue); font-size: 12px; margin-left: 8px }
+.cp-act:hover:not(:disabled) { text-decoration: underline }
+.cp-act:disabled { color: var(--ink3); cursor: default }
+.cp-said { font-size: 12px; color: var(--ink3) }
+.cp-refuse { color: var(--red); font-size: 12px; margin-left: 8px }
+.cp-q { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font-size: 13.5px }
+.cp-q .who { display: block; text-align: left; font-size: 12px; color: var(--amber); margin-bottom: 1px }
+.cp-q .btn { margin-top: 6px }
+.cp-done { color: var(--ink2) }
+
+.ap-prompt { background: var(--code); border-radius: 6px; padding: 12px 0; margin: 0 0 12px; font: 12.5px/1.65 var(--m); overflow-x: auto }
+.ap-line { padding: 0 14px; white-space: pre-wrap; overflow-wrap: anywhere }
+.ap-line.mine { background: var(--blue-bg); box-shadow: inset 2px 0 0 var(--blue) }
+.ap-said { display: block; font: 12px var(--f); color: var(--blue); padding-bottom: 2px }
+.ap-text { padding: 0 14px; white-space: pre-wrap }
+.ap-in { background: var(--code); border: 1px solid var(--line); border-radius: 5px; padding: 3px 8px; font-size: 13px; min-width: 0 }
+input.ap-in { width: 200px }

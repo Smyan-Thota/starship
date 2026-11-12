@@ -1,0 +1,11 @@
+{
+  "type": "agent-turn-complete",
+  "thread-id": "01a1ce00-de3f-7770-a27f-7a5ba10b8623",
+  "turn-id": "01a1ce01-1598-7e82-b4f8-ab791e2fbf53",
+  "cwd": "/work/demo",
+  "client": "codex-tui",
+  "input-messages": [
+    "Reply with the single word hello. Do not run any command."
+  ],
+  "last-assistant-message": "hello"
+}

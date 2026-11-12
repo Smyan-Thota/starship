@@ -1,0 +1,8 @@
+ ▐▛███▛█   Claude Code v2.1.322
+▝▜██████▀  Haiku 5.5 · Claude
+ ▝▝   ▝▝   /work/demo
+────────────────────────────────────────
+❯ Try "fix typecheck errors"
+────────────────────────────────────────
+  sst
+  ⏵⏵ auto mode on (shift+tab to cycle)

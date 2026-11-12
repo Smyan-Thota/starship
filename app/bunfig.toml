@@ -1,0 +1,4 @@
+[test]
+# Only test/. The browser tests in e2e/ run under Playwright: bun run e2e.
+root = "./test"
+preload = ["./test/setup.ts"]

@@ -1,0 +1,12 @@
+.need-list { list-style: none; margin: 0; padding: 0 }
+.need { display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--line) }
+.need:hover { background: var(--hover) }
+.need-main { flex: 1; min-width: 0; display: grid; grid-template-columns: 46px minmax(0, 1fr) auto; gap: 8px; padding: 6px 4px; align-items: baseline; text-align: left }
+.need-main .id { font: 12px var(--m); color: var(--ink3) }
+.need-main .s { font-size: 12.5px; color: var(--ink2); white-space: nowrap }
+.need .btn { flex: none }
+.cp-needs { border-top: 1px solid var(--line); padding: 4px 16px; font-size: 13px; color: var(--amber) }
+.itw { display: flex; align-items: center; border-radius: 5px }
+.itw > .it { flex: 1; min-width: 0 }
+.itw > .cnt { flex: none; padding: 4px 8px }
+.itw > .cnt:hover { background: var(--hover) }

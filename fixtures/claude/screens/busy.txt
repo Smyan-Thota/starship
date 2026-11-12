@@ -1,0 +1,8 @@
+❯ Reply with the single word hello. Do not use any tool.
+⏺ hello
+· Smooshing… (running Stop hooks… 3/4 · 2s · ↓ 25 tokens · thinking)
+────────────────────────────────────────
+❯ 
+────────────────────────────────────────
+  sst
+  ⏵⏵ auto mode on (shift+tab to cycle)

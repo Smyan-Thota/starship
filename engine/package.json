@@ -1,0 +1,8 @@
+{
+  "name": "@starship/engine",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "starship": "src/cli.ts"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "T022": { "state": "working", "agent": "worker-a", "attempts": 1 },
+    "T023": { "state": "checking", "agent": "worker-b", "attempts": 1 },
+    "T031": { "state": "blocked", "agent": null, "attempts": 0 }
+  }
+}
