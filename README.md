@@ -89,3 +89,7 @@ cargo test --manifest-path app/src-tauri/Cargo.toml   # the Rust tests of the Ma
 | `docs/templates/` | The original planning templates. See `docs/templates/README.md`. |
 | `fixtures/` | Test data. See `fixtures/README.md`. |
 | `scripts/` | `edges.ts` lists which edge cases have a test. `check-off.ts` checks a task off. |
+
+## License
+
+MIT. See `LICENSE`. The files in `docs/templates/` and `fixtures/rate-limited-cli/` come from another MIT-licensed repo, and their license is in `docs/templates/LICENSE-rate-limited-cli.txt`.
